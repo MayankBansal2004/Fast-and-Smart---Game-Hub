@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0072ff, #074ca6);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.navbar {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Add this to wrap items on smaller screens */
+}
+
+.navbar .nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.navbar .nav-link:hover {
+    background-color: #ff6f61;
+    border-radius: 5px;
+    transform: translateY(-3px);
+}
+
+header {
+    text-align: center;
+    padding: 100px 20px;
+    animation: slideDown 1.5s ease;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+header h1 {
+    font-size: 3.8rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease;
+}
+
+header h1:hover {
+    transform: scale(1.05);
+}
+
+header p {
+    color: #e0e0e0;
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-grow: 1;
+    width: 100%; /* Ensure main takes full width */
+}
+
+.game-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+    animation: zoomIn 1.2s ease; 
+    flex-wrap: wrap; /* Add this for responsiveness */
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.game-card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: float 2s ease infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.game-image {
+    width: 100%;
+    height: 150px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.game-image:hover {
+    transform: scale(1.05);
+}
+
+.game-card h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.game-card p {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.play-btn {
+    background-color: #ff6f61;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.play-btn:hover {
+    background-color: #e05241;
+    transform: translateY(-5px);
+}
+
+.about-section {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 40px;
+    margin: 20px 0;
+    max-width: 800px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-section:hover {
+    transform: translateY(-5px);
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    color: #1a237e; 
+    margin-bottom: 15px; 
+    text-align: center;
+}
+
+.about-section h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.about-section p {
+    color: #444; 
+    font-size: 1.1rem; 
+    line-height: 1.6; 
+    margin-bottom: 15px; 
+}
+
+.about-list {
+    list-style-type: disc; 
+    padding-left: 20px;
+    color: #444;
+    font-size: 1.1rem; 
+    line-height: 1.6;
+    margin-top: 10px; 
+}
+
+.contact-info {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+    max-width: 600px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.contact-info:hover {
+    transform: translateY(-5px);
+}
+
+.contact-info h2 {
+    font-size: 2.2rem;
+    color: #1a237e;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+.contact-info a {
+    color: #ff6f61;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    background-color: #1a237e;
+    color: white;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        gap: 15px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.2rem; 
+    }
+
+    .game-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .game-card {
+        width: 90%;
+        max-width: 350px;
+        height: auto;
+    }
+
+    .about-section,
+    .contact-info {
+        width: 90%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem; /* Further adjust font size for very small screens */
+    }
+
+    header p {
+        font-size: 1rem; /* Further adjust font size */
+    }
+
+    .play-btn {
+        font-size: 1rem; /* Adjust button font size */
+    }
+
+    .about-section h2 {
+        font-size: 2rem; /* Adjust heading size */
+    }
+
+    .about-section h3 {
+        font-size: 1.5rem; /* Adjust subheading size */
+    }
+
+    .contact-info h2 {
+        font-size: 1.8rem; /* Adjust contact heading size */
+    }
+}
