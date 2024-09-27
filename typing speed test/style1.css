@@ -24,7 +24,8 @@ body {
     background: #007acc;
 }
 .wrapper {
-    width: 700px;
+    width: 900px;
+    height: 500px;
     padding: 35px;
     background: #1e1e1e;
     border-radius: 10px;
@@ -41,14 +42,16 @@ body {
     border: 4px solid #007acc;
 }
 .content-box .typing-text {
+
     overflow: hidden;
-    max-height: 256px;
+    max-height: 300px;
 }
 .typing-text::-webkit-scrollbar {
     width: 0;
 }
 .typing-text p {
-    font-size: 21px;
+
+    font-size: 27px;
     text-align: justify;
     letter-spacing: 1px;
     word-break: break-all;
@@ -57,7 +60,7 @@ body {
     position: relative;
 }
 .typing-text p span.correct {
-    color: #d1d0c5;
+    color: #0bb940;
 }
 .typing-text p span.incorrect {
     color: #ca4754;
@@ -87,6 +90,7 @@ body {
     margin-top: 17px;
     display: flex;
     padding: 12px 0;
+    height: 100px;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
@@ -131,11 +135,11 @@ body {
     border-left: 2px solid #bfbfbf;
 }
 .result-details li p {
-    font-size: 13px;
+    font-size: 22px;
 }
 .result-details li span {
     display: block;
-    font-size: 13px;
+    font-size: 20px;
     margin-left: 10px;
 }
 li span b {
@@ -155,7 +159,7 @@ li:not(:first-child) span {
         max-height: 100%;
     }
     .typing-text p {
-        font-size: 19px;
+        font-size: 25px;
         text-align: left;
     }
     .content button {
@@ -173,7 +177,7 @@ li:not(:first-child) span {
     }
     .result-details li p,
     .result-details li span {
-        font-size: 15px;
+        font-size: 20px;
     }
 }
 @media (max-width: 518px) {
