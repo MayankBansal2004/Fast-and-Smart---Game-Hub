@@ -1,80 +1,137 @@
-let boxes = document.querySelectorAll(".box");
 
-let turn = "X";
-let isGameOver = false;
+var P1="PLAYER1";
+var P2="PLAYER2";
+function changeName(){
+    P1=prompt("Name of the player who choose: 'X' !!" );
+    P2=prompt("Name of the player who choose :'O' !!");
 
-boxes.forEach(e =>{
-    e.innerHTML = ""
-    e.addEventListener("click", ()=>{
-        if(!isGameOver && e.innerHTML === ""){
-            e.innerHTML = turn;
-            cheakWin();
-            cheakDraw();
-            changeTurn();
+    var str1=P1+" : X";
+    var str2=P2+" : O";
+    document.getElementById("result").innerHTML=str1+"<br>"+str2;
+    document.getElementById("result").style.color="ANTIQUEWHITE";
+}
+
+
+var flag=true;
+var t=0;
+function game(){
+    if(flag==true){
+        document.activeElement.innerHTML="X";
+        document.activeElement.removeAttribute("onclick");
+        document.activeElement.style.backgroundColor="#2a74f0";
+        t++;
+        flag=false;
+        var final=checkresult();
+        if(final=="stop"){
+            document.getElementById("result").innerHTML=P1+" WINS !!";
+            document.getElementById("result").style.fontSize="45px";
+            document.getElementById("result").style.color="antiquewhite";
+            document.getElementById("result").style.paddingTop="30px";
+            removeATT();
         }
-    })
-})
 
-function changeTurn(){
-    if(turn === "X"){
-        turn = "O";
-        document.querySelector(".bg").style.left = "85px";
+        else if(t==9){
+            document.getElementById("result").innerHTML="MATCH DRAW !!";
+        }
     }
     else{
-        turn = "X";
-        document.querySelector(".bg").style.left = "0";
-    }
-}
+        document.activeElement.innerHTML="O";
+        document.activeElement.style.backgroundColor="hotpink";
+        document.activeElement.removeAttribute("onclick");
+        t++;
+        flag=true;
+        var final=checkresult();
+        if(final=="stop"){
+            document.getElementById("result").innerHTML=P2+" WINS !!";
+            document.getElementById("result").style.fontSize="45px";
+            document.getElementById("result").style.color="antiquewhite";
+            document.getElementById("result").style.paddingTop="30px";
+            removeATT();
+        }
 
-function cheakWin(){
-    let winConditions = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8],
-        [0, 3, 6], [1, 4, 7], [2, 5, 8],
-        [0, 4, 8], [2, 4, 6]
-    ]
-    for(let i = 0; i<winConditions.length; i++){
-        let v0 = boxes[winConditions[i][0]].innerHTML;
-        let v1 = boxes[winConditions[i][1]].innerHTML;
-        let v2 = boxes[winConditions[i][2]].innerHTML;
-
-        if(v0 != "" && v0 === v1 && v0 === v2){
-            isGameOver = true;
-            document.querySelector("#results").innerHTML = turn + " win";
-            document.querySelector("#play-again").style.display = "inline"
-
-            for(j = 0; j<3; j++){
-                boxes[winConditions[i][j]].style.backgroundColor = "#08D9D6"
-                boxes[winConditions[i][j]].style.color = "#000"
-            }
+        else if(t==9){
+            document.getElementById("result").innerHTML="MATCH DRAW !!";
         }
     }
-}
 
-function cheakDraw(){
-    if(!isGameOver){
-        let isDraw = true;
-        boxes.forEach(e =>{
-            if(e.innerHTML === "") isDraw = false;
-        })
+    }
 
-        if(isDraw){
-            isGameOver = true;
-            document.querySelector("#results").innerHTML = "Draw";
-            document.querySelector("#play-again").style.display = "inline"
-        }
+
+
+
+function checkresult(){
+    var str;
+    if((document.getElementById("b1").innerHTML==document.getElementById("b2").innerHTML && document.getElementById("b1").innerHTML==document.getElementById("b3").innerHTML) && ((document.getElementById("b1").innerHTML=="X") || (document.getElementById("b1").innerHTML=="O"))){
+        
+
+        str="stop";
+        return str;
+    }
+
+    else if((document.getElementById("b1").innerHTML==document.getElementById("b4").innerHTML && document.getElementById("b1").innerHTML==document.getElementById("b7").innerHTML) && ((document.getElementById("b1").innerHTML=="X") || (document.getElementById("b1").innerHTML=="O"))){
+        
+
+        str="stop";
+        return str;
+    }
+
+    else if((document.getElementById("b1").innerHTML==document.getElementById("b5").innerHTML && document.getElementById("b1").innerHTML==document.getElementById("b9").innerHTML) && ((document.getElementById("b1").innerHTML=="X") || (document.getElementById("b1").innerHTML=="O"))){
+        
+
+        str="stop";
+        return str;
+    }
+
+    else if((document.getElementById("b3").innerHTML==document.getElementById("b6").innerHTML && document.getElementById("b9").innerHTML==document.getElementById("b3").innerHTML) && ((document.getElementById("b3").innerHTML=="X") || (document.getElementById("b3").innerHTML=="O"))){
+        
+
+        str="stop";
+        return str;
+    }
+
+    else if((document.getElementById("b3").innerHTML==document.getElementById("b5").innerHTML && document.getElementById("b3").innerHTML==document.getElementById("b7").innerHTML) && ((document.getElementById("b3").innerHTML=="X") || (document.getElementById("b3").innerHTML=="O"))){
+        
+
+        str="stop";
+        return str;
+    }
+
+    else if((document.getElementById("b7").innerHTML==document.getElementById("b8").innerHTML && document.getElementById("b7").innerHTML==document.getElementById("b9").innerHTML) && ((document.getElementById("b7").innerHTML=="X") || (document.getElementById("b7").innerHTML=="O"))){
+        
+
+        str="stop";
+        return str;
+    }
+
+    else if((document.getElementById("b4").innerHTML==document.getElementById("b6").innerHTML && document.getElementById("b4").innerHTML==document.getElementById("b5").innerHTML) && ((document.getElementById("b4").innerHTML=="X") || (document.getElementById("b4").innerHTML=="O"))){
+        
+
+        str="stop";
+        return str;
+    }
+
+    else if((document.getElementById("b2").innerHTML==document.getElementById("b5").innerHTML && document.getElementById("b2").innerHTML==document.getElementById("b8").innerHTML) && ((document.getElementById("b2").innerHTML=="X") || (document.getElementById("b2").innerHTML=="O"))){
+        
+
+        str="stop";
+        return str;
     }
 }
 
-document.querySelector("#play-again").addEventListener("click", ()=>{
-    isGameOver = false;
-    turn = "X";
-    document.querySelector(".bg").style.left = "0";
-    document.querySelector("#results").innerHTML = "";
-    document.querySelector("#play-again").style.display = "none";
 
-    boxes.forEach(e =>{
-        e.innerHTML = "";
-        e.style.removeProperty("background-color");
-        e.style.color = "#fff"
-    })
-}) 
+function  removeATT(){
+    document.getElementById("b1").removeAttribute("onclick");
+    document.getElementById("b2").removeAttribute("onclick");
+    document.getElementById("b3").removeAttribute("onclick");
+    document.getElementById("b4").removeAttribute("onclick");
+    document.getElementById("b5").removeAttribute("onclick");
+    document.getElementById("b6").removeAttribute("onclick");
+    document.getElementById("b7").removeAttribute("onclick");
+    document.getElementById("b8").removeAttribute("onclick");
+    document.getElementById("b9").removeAttribute("onclick");
+}
+
+
+function replay(){
+    window.location.reload();
+}
