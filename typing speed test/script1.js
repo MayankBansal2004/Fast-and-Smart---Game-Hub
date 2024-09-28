@@ -20,25 +20,27 @@ const paragraphs = [
     "Those cowbells are nothing more than elements. This could be, or perhaps before stockings, thoughts were only opinions. A coil of the exclamation is assumed to be a hurtless toy. A board is the cast of a religion. In ancient times the first stinko sailboat is, in its own way, an exchange. Few can name a tutti channel that isn't a footless operation. Extending this logic, an oatmeal is the rooster of a shake. Those step-sons are nothing more than matches.",
 ];
 
-const typingText = document.querySelector(".typing-text p")
-const inpField = document.querySelector(".wrapper .input-field")
-const tryAgainBtn = document.querySelector(".content button")
-const timeTag = document.querySelector(".time span b")
-const mistakeTag = document.querySelector(".mistake span")
-const wpmTag = document.querySelector(".wpm span")
-const cpmTag = document.querySelector(".cpm span")
+
+const typingText = document.querySelector(".typing-text p");
+const inpField = document.querySelector(".wrapper .input-field");
+const tryAgainBtn = document.querySelector(".content button");
+const timeTag = document.querySelector(".time span b");
+const mistakeTag = document.querySelector(".mistake span");
+const wpmTag = document.querySelector(".wpm span");
+const cpmTag = document.querySelector(".cpm span");
+const highScoreTag = document.querySelector(".high-score span"); 
 
 let timer;
-let maxTime = 60;
+let maxTime = 30;
 let timeLeft = maxTime;
 let charIndex = mistakes = isTyping = 0;
+let wpm;
 
 function loadParagraph() {
     const ranIndex = Math.floor(Math.random() * paragraphs.length);
     typingText.innerHTML = "";
     paragraphs[ranIndex].split("").forEach(char => {
-        console.log(char);
-        let span = `<span>${char}</span>`
+        let span = `<span>${char}</span>`;
         typingText.innerHTML += span;
     });
     typingText.querySelectorAll("span")[0].classList.add("active");
@@ -74,14 +76,15 @@ function initTyping() {
         characters.forEach(span => span.classList.remove("active"));
         characters[charIndex].classList.add("active");
 
-        let wpm = Math.round(((charIndex - mistakes) / 5) / (maxTime - timeLeft) * 60);
-        wpm = wpm < 0 || !wpm || wpm === Infinity ? 0: wpm;
+        wpm = Math.round(((charIndex - mistakes) / 5) / (maxTime - timeLeft) * 60);
+        wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
 
         wpmTag.innerText = wpm;
         mistakeTag.innerText = mistakes;
         cpmTag.innerText = charIndex - mistakes;
     } else {
         clearInterval(timer);
+        handleScore(wpm);
         inpField.value = "";
     }
 }
@@ -90,12 +93,25 @@ function initTimer() {
     if (timeLeft > 0) {
         timeLeft--;
         timeTag.innerText = timeLeft;
-        let wpm = Math.round(((charIndex - mistakes) / 5) / (maxTime - timeLeft) * 60);
-        wpmTag.innerText = wpm;
     } else {
         clearInterval(timer);
     }
 }
+
+function handleScore(currentScore) {
+    const highScore = localStorage.getItem("highScore") || 0 ; 
+    // console.log(currentScore);
+    // console.log(highScore);
+    if (currentScore > highScore) {
+        localStorage.setItem("highScore", currentScore); 
+        highScoreTag.innerText = currentScore;
+    } else {
+
+        highScoreTag.innerText = highScore;
+    }
+}
+
+
 
 function resetGame() {
     loadParagraph();
@@ -107,8 +123,16 @@ function resetGame() {
     wpmTag.innerText = 0;
     mistakeTag.innerText = 0;
     cpmTag.innerText = 0;
+
+    const highScore = localStorage.getItem("highScore") || 0;
+    highScoreTag.innerText = highScore;
 }
+
+window.onload = function() {
+    const highScore = localStorage.getItem("highScore") || 0;
+    highScoreTag.innerText = highScore;
+};
 
 loadParagraph();
 inpField.addEventListener("input", initTyping);
-tryAgainBtn.addEventListener("click", resetGame);a
+tryAgainBtn.addEventListener("click", resetGame);
