@@ -1,6 +1,6 @@
-**Smart and Fast Game-Hub**
+***Smart and Fast Game-Hub***
 
-**Introduction**
+***Introduction***
 The Smart and Fast Game-Hub is a web-based platform that offers two engaging games: Tic Tac Toe and Speed Typing. Designed with a user-friendly interface, this hub allows players to challenge themselves and improve their skills in a fun and interactive way.
 
 **Features**
