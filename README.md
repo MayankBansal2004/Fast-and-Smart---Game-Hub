@@ -1,50 +1,46 @@
-***Smart and Fast Game-Hub***
+# Smart and Fast Game-Hub
 
-***Introduction***
-The Smart and Fast Game-Hub is a web-based platform that offers two engaging games: Tic Tac Toe and Speed Typing. Designed with a user-friendly interface, this hub allows players to challenge themselves and improve their skills in a fun and interactive way.
+---
 
-**Features**
+## Introduction
 
-**Tic Tac Toe:** Play this classic two-player game where you can challenge friends or practice against the computer.
+The **Smart and Fast Game-Hub** is a web-based platform that offers two engaging games: **Tic Tac Toe** and **Speed Typing**. Designed with a user-friendly interface, this hub allows players to challenge themselves and improve their skills in a fun and interactive way.
 
-**Speed Typing:** Test and improve your typing speed and accuracy through engaging exercises.
+---
 
-**Responsive Design:** The hub is designed to work seamlessly across different devices, including desktops, tablets, and mobile phones.
+## Features
 
-**Game Instructions:** Clear instructions are provided for each game to ensure players can easily understand how to play.
+- **Tic Tac Toe**: Play this classic two-player game where you can challenge friends or practice against the computer.
+- **Speed Typing**: Test and improve your typing speed and accuracy through engaging exercises.
+- **Responsive Design**: The hub is designed to work seamlessly across different devices, including desktops, tablets, and mobile phones.
+- **Game Instructions**: Clear instructions are provided for each game to ensure players can easily understand how to play.
 
+---
 
-**The project is structured as follows:**
+## Project Structure
 
-index.html: The main page of the Game-Hub.
+The project is structured as follows:
 
-index2.html: The page for Tic Tac Toe.
+- `index.html`: The main page of the Game-Hub.
+- `index2.html`: The page for Tic Tac Toe.
+- `index1.html`: The page for Speed Typing.
+- `style2.css`: The styling for Tic Tac Toe.
+- `style1.css`: The styling for Speed Typing.
+- `style.css`: The stylesheet for styling the web pages.
+- `about.html`: Information about the Game-Hub.
+- `script1.js`: The logic for Speed Typing.
+- `script2.js`: The logic for Tic Tac Toe.
+- `contact.html`: Contact information for feedback and inquiries.
 
-index1.html: The page for Speed Typing.
+---
 
-style2.css: the styling for tic tac toe.
+## How to Run
 
-style1.css: the styling for speed typing.
+To run the **Smart and Fast Game-Hub** locally:
 
-style.css: The stylesheet for styling the web pages.
-
-about.html: Information about the Game-Hub.
-
-script1.js.html: the logic for speed typing.
-
-script2.js.html: the logic for tic tac toe.
-
-contact.html: Contact information for feedback and inquiries.
-
-How to Run
-To run the Smart and Fast Game-Hub locally:
-
-
-
-**Clone the repository:**
-
-git clone https://github.com/mayankbansal2004/mini-games.git
-Navigate to the project directory:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mayankbansal2004/mini-games.git
 
 
 **cd Smart-and-Fast-Game-Hub**
